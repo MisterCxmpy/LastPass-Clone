@@ -1,4 +1,8 @@
 const electron = require('electron')
+const ipcMain  = require('electron')
+const ipcRenderer  = require('electron')
+const fs = require("fs");
+
 // Module to control application life.
 const app = electron.app
 // Module for mennu
@@ -61,6 +65,7 @@ app.on('ready', () => {
 
 // PHP SERVER CREATION /////
 const PHPServer = require('php-server-manager');
+const { contextIsolated } = require('process');
 
 let server
   if (process.platform === 'win32') {
@@ -97,7 +102,17 @@ function createWindow () {
 
   server.run();
   // Create the browser window.
-  mainWindow = new BrowserWindow({width: 800, height: 600})
+  mainWindow = new BrowserWindow({
+    width: 1280, 
+    height: 900, 
+    minWidth: 1080,
+    minHeight: 700,
+    autoHideMenuBar: true,
+    webPreferences: {
+      nodeIntegration: true,
+      contextIsolation: false
+    }
+  })
 
   // and load the index.html of the app.
   mainWindow.loadURL('http://'+server.host+':'+server.port+'/')
@@ -109,7 +124,7 @@ mainWindow.loadURL(url.format({
   slashes: true
 }))
 */
- const {shell} = require('electron')
+ const {shell, ipcMain} = require('electron')
  shell.showItemInFolder('fullPath')
 
   // Open the DevTools.

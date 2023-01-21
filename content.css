@@ -1,0 +1,256 @@
+:root {
+  --text-title-primary: #2e2e2e;
+  font-family: "Open Sans";
+}
+
+.header {
+  padding: 0 4% 0 4%;
+  display: flex;
+  height: 50px;
+  color: var(--text-title-primary);
+}
+
+.header h1 {
+  margin: auto;
+  width: 50%;
+}
+
+.header h1 {
+  flex-grow: 1;
+}
+
+.button-5 {
+  align-items: center;
+  background-clip: padding-box;
+  background-color: #ce4153;
+  border: 1px solid transparent;
+  border-radius: .25rem;
+  box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: "Open Sans";
+  font-size: 16px;
+  font-weight: 600;
+  justify-content: center;
+  line-height: 1.25;
+  margin: 0;
+  min-height: 3rem;
+  padding: calc(.875rem - 1px) calc(1.5rem - 1px);
+  position: relative;
+  text-decoration: none;
+  transition: all 0ms ease 0ms;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: baseline;
+  width: auto;
+}
+
+.button-5:hover,
+.button-5:focus {
+  background-color: #e03a50;
+  box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
+}
+
+.button-5:hover {
+  transform: translateY(-1px);
+}
+
+.button-5:active {
+  background-color: #bd3345;
+  box-shadow: rgba(0, 0, 0, .06) 0 2px 4px;
+  transform: translateY(0);
+}
+
+.add-items .item-content input {
+  appearance: none;
+  border: none;
+  outline: none;
+  background: none;
+  font-size: 18px;
+  color: #ececec;
+}
+
+.add-items .item-actions button {
+  appearance: none;
+  border: none;
+  outline: none;
+  background: none;
+  font-size: 18px;
+  cursor: pointer;
+  transition: 100ms;
+  opacity: 0;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.link {
+  cursor: pointer;
+}
+
+.item {
+  display: flex;
+  justify-content: space-between;
+  background-color: #373747;
+  padding: 1rem;
+  transition: 0.2s;
+  margin-bottom: 7px;
+  border-radius: 12px;
+  box-shadow: rgba(0, 0, 0, 0.5) 0 4px 8px ;
+}
+
+.item:hover {
+  background-color: #23232e3d;
+}
+
+.item:hover .item-actions button {
+  opacity: 0.4;
+}
+
+.item:hover input {
+  color: #2e2e2e;
+}
+
+.item:hover span {
+  color: #2e2e2e;
+}
+
+.item-actions button:hover {
+  opacity: 1 !important;
+}
+
+.item-actions button:active {
+  opacity: 0.6 !important;
+}
+
+.modal-header {
+  background-color: #23232e;
+  padding: 15px;
+  line-height: 40px;
+  color: #fff;
+  text-align: center;
+}
+
+.modal-header h2 {
+  margin: 0;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  overflow: none;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+  background-color: #f4f4f4;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50%;
+  box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, 0.17);
+}
+
+.modal-body {
+  padding: 10px 20px;
+}
+
+.close-btn {
+  color: #ccc;
+  float: right;
+  font-size: 30px;
+}
+
+.close-btn:hover, .close-btn:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+form {
+  width: 100%;
+}
+
+.input-group {
+  margin-bottom: 30px;
+}
+
+.input-group input, textarea {
+  font-family: "Open Sans";
+  width: 100%;
+  box-sizing: border-box;
+  padding: 10px;
+  outline: 0;
+  border: 1px solid #23232e;
+  color: var(--text-title-primary);
+  font-size: 16px;
+}
+
+.input-group .error {
+  color: #ff3860;
+  position: absolute;
+}
+
+.field-icon {
+  float: right;
+  margin-left: -25px;
+  margin-top: -25px;
+  position: relative;
+  z-index: 2;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 120px;
+  max-height: 250px;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.row .input-group {
+  flex-basis: 48%;
+}
+
+.form-save {
+  float: right;
+  margin-top: -15px;
+  margin-bottom: 15px;
+}
+
+.link {
+  position: relative;
+  color: #ececec;
+  text-decoration: none;
+}
+
+.link::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #ce4153;
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+
+.link:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+} 
+
+#textBox {overflow-y: scroll;}
