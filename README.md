@@ -2,6 +2,8 @@
 
 A desktop application that allows you to securely store and manage your passwords, notes, addresses, bank accounts and more.
 
+This desktop application was created using [ELECTRON-4-PHP](https://github.com/aj-techsoul/ELECTRON-4-PHP) by [aj-techsoul](https://github.com/aj-techsoul). The reason behind this decision was that it allowed for the creation of dynamic page content, thus enabling a seamless transition between pages for the user.
+
 ## Features
 - Save and encrypt your passwords and other sensitive information
 - Secure notes for storing additional information
