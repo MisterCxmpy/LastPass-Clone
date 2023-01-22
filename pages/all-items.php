@@ -20,7 +20,7 @@
       <div id="edit-password-modal" class="modal">
         <div class="modal-content">
           <div class="modal-header">
-            <span id="edit-close-btn" class="close-btn">&times;</span>
+            <span id="edit-password-close-btn" class="close-btn">&times;</span>
             <h2 id="modal-header">Edit password</h2>
           </div>
           <div class="modal-body">
@@ -73,20 +73,20 @@
       <div id="edit-note-modal" class="modal">
         <div class="modal-content">
           <div class="modal-header">
-            <span id="edit-close-btn" class="close-btn">&times;</span>
+            <span id="edit-note-close-btn" class="close-btn">&times;</span>
             <h2 id="modal-header">Edit Note</h2>
           </div>
           <div class="modal-body">
             <form>
               <div class="input-group">
-                <label for="edit-name">Name: <span style="color: red">*</span></label>
-                <input type="text" id="edit-name">
+                <label for="edit-note-name">Name: <span style="color: red">*</span></label>
+                <input type="text" id="edit-note-name">
                 <div class="error"></div>
               </div>
 
               <div class="input-group">
-                <label for="edit-textBox">Message: <span style="color: red">*</span></label>
-                <textarea id="edit-textBox" style="height: 120px;"></textarea>
+                <label for="edit-note-textBox">Message: <span style="color: red">*</span></label>
+                <textarea id="edit-note-textBox" style="height: 120px;"></textarea>
                 <div class="error"></div>
               </div>
 
