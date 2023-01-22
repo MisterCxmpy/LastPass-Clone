@@ -32,6 +32,22 @@
 </head>
 
 <body>
+  
+  <div class="main-app">
+    <div class="top-bar">
+      <div class="title-bar">
+        <div class="title">
+          InfoPass
+        </div>
+      </div>
+      <div class="title-bar-btns">
+        <button id="minimizeBtn" class="top-btn minimize-btn"></button>
+        <button id="maximizeBtn" class="top-btn maximize-btn"></button>
+        <button id="closeBtn" class="top-btn close-btn"></button>
+      </div>
+    </div>
+  </div>
+
   <nav class="navbar">
     <ul class="navbar-nav">
       <li class="logo">
@@ -82,13 +98,6 @@
           <span class="link-text">Bank Accounts</span>
         </a>
       </li>
-
-      <li class="nav-item">
-        <a href="#" data-target="settings" class="nav-link">
-          <i class="fa-solid fa-gear fa-xl"></i>
-          <span class="link-text">Settings</span>
-        </a>
-      </li>
       </li>
     </ul>
   </nav>
@@ -98,6 +107,8 @@
       <?php include('pages/all-items.php'); ?>
     </div>
   </main>
+
+  <script src="script.js"></script>
 </body>
 
 </html>

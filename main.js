@@ -3,6 +3,8 @@ const ipcMain  = require('electron')
 const ipcRenderer  = require('electron')
 const fs = require("fs");
 
+const ipc = ipcMain
+
 // Module to control application life.
 const app = electron.app
 // Module for mennu
@@ -106,8 +108,9 @@ function createWindow () {
     width: 1280, 
     height: 900, 
     minWidth: 1080,
-    minHeight: 700,
+    minHeight: 705,
     autoHideMenuBar: true,
+    frame: false,
     webPreferences: {
       nodeIntegration: true,
       contextIsolation: false
@@ -116,6 +119,22 @@ function createWindow () {
 
   // and load the index.html of the app.
   mainWindow.loadURL('http://'+server.host+':'+server.port+'/')
+
+  ipc.ipcMain.on("minimizeApp", () => {
+    mainWindow.minimize()
+  })
+
+  ipc.ipcMain.on("maximizeApp", () => {
+    if (mainWindow.isMaximized()) {
+      mainWindow.restore()
+    } else {
+      mainWindow.maximize()
+    }
+  })
+
+  ipc.ipcMain.on("closeApp", () => {
+    mainWindow.close()
+  })
 
 /*
 mainWindow.loadURL(url.format({
@@ -169,3 +188,4 @@ app.on('activate', function () {
 
 // In this file you can include the rest of your app's specific main process
 // code. You can also put them in separate files and require them here.
+
