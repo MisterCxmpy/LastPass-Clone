@@ -1,7 +1,7 @@
 {
-  "name": "ELECTRON4PHP",
+  "name": "InfoPass",
   "version": "1.0.0",
-  "description": "An easiest way to use php in electron",
+  "description": "A LastPass Clone",
   "main": "main.js",
   "scripts": {
     "start": "electron-forge start",
@@ -11,11 +11,10 @@
     "package": "electron-forge package",
     "make": "electron-forge make"
   },
-  "repository": "https://github.com/AJ-TechSoul/ELECTRON-4-PHP",
+  "repository": "https://github.com/MisterCxmpy/LastPass-Clone",
   "keywords": [
     "Electron",
-    "php",
-    "techsoul"
+    "php"
   ],
   "author": "Cosgun Hussein",
   "license": "CC0-1.0",

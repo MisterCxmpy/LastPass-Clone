@@ -78,7 +78,7 @@ save_item.addEventListener("click", (e) => {
     localStorage.setItem("items", JSON.stringify(items));
 
     loadPasswords();
-
+    
     url.value = "";
     website.value = "";
     username.value = "";
@@ -93,11 +93,6 @@ function openSimpleModal() {
 
 function closeSimpleModal() {
   simpleModal.style.display = "none";
-  url.value = "";
-  website.value = "";
-  username.value = "";
-  password.value = "";
-  textBox.value = "";
 }
 
 function openEditModal(e) {

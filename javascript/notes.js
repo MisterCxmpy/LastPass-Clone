@@ -14,14 +14,10 @@ function openSimpleModal() {
 
 function closeSimpleModal() {
   simpleModal.style.display = "none";
-  noteName.value = "";
-  message.value = "";
 }
 
 function closeEditModal() {
   editModal.style.display = "none";
-  noteName.value = "";
-  message.value = "";
 }
 
 function clickOutside(e) {

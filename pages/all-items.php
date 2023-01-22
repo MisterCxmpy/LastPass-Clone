@@ -10,7 +10,7 @@
   </div>
   <hr>
   <div class="sub-header">
-    <div>
+    <div id="password-content">
       <h2>Passwords</h2>
       <hr>
       <div id="password-content-item-list" class="add-items">
@@ -61,9 +61,40 @@
         </div>
       </div>
     </div>
+
     <div id="note-content">
       <h2>Notes</h2>
       <hr>
+
+      <div id="note-content-item-list" class="add-items">
+
+      </div>
+
+      <div id="edit-note-modal" class="modal">
+        <div class="modal-content">
+          <div class="modal-header">
+            <span id="edit-close-btn" class="close-btn">&times;</span>
+            <h2 id="modal-header">Edit Note</h2>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="input-group">
+                <label for="edit-name">Name: <span style="color: red">*</span></label>
+                <input type="text" id="edit-name">
+                <div class="error"></div>
+              </div>
+
+              <div class="input-group">
+                <label for="edit-textBox">Message: <span style="color: red">*</span></label>
+                <textarea id="edit-textBox" style="height: 120px;"></textarea>
+                <div class="error"></div>
+              </div>
+
+              <button id="note-content-update-item" class="button-5 form-save">Save</button>
+            </form>
+          </div>
+        </div>
+      </div>
     </div>
     <div id="address-content">
       <h2>Addressess</h2>
