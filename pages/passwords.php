@@ -6,17 +6,8 @@
     <button id="modal-btn" class="button-5">Add New</button>
   </div>
   <hr>
-  <div id="item-list" class="add-items">
 
-    <!-- <div class="item">
-        <div class="item-content">
-          <input type="text" class="item-text" value="test item" readonly>
-        </div>
-        <div class="item-actions">
-          <button class="edit">Edit</button>
-          <button class="delete">Delete</button>
-        </div>
-      </div> -->
+  <div id="item-list" class="add-items">
 
   </div>
 

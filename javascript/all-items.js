@@ -1,28 +1,14 @@
-var { shell } = require('electron')
+//#region Passwords
 
-var simpleModal = document.getElementById("simple-modal");
-var simpleModalBtn = document.getElementById("modal-btn");
-var simpleCloseBtn = document.getElementById("close-btn");
-
-simpleModalBtn.addEventListener("click", openSimpleModal);
-simpleCloseBtn.addEventListener("click", closeSimpleModal);
-window.addEventListener("mousedown", clickOutside);
-
-var item_list = document.querySelector("#item-list");
-var save_item = document.getElementById("save-item");
-var updateItem = document.getElementById("update-item");
-
-var url = document.querySelector("#url");
-var website = document.querySelector("#website");
-var username = document.querySelector("#username");
-var password = document.querySelector("#password");
-var textBox = document.querySelector("#textBox");
+var passwordContentItemList = document.getElementById("password-content-item-list");
+var passwordContentUpdateItem = document.getElementById("password-content-update-item");
 
 var editUrl = document.querySelector("#edit-url");
 var editWebsite = document.querySelector("#edit-website");
 var editUsername = document.querySelector("#edit-username");
 var editPassword = document.querySelector("#edit-password");
 var editTextBox = document.querySelector("#edit-textBox");
+
 
 items = JSON.parse(localStorage.getItem("items")) || [];
 
@@ -44,67 +30,11 @@ var setSuccess = (element) => {
   element.parentElement.classList.add("success");
 };
 
-save_item.addEventListener("click", (e) => {
-  e.preventDefault();
-
-  var _website = website.value;
-  var _password = password.value;
-
-  if (_website === "") {
-    setError(website, "Website is required");
-  } else {
-    setSuccess(website);
-  }
-
-  if (_password === "") {
-    setError(password, "Password is required");
-  } else {
-    setSuccess(password);
-  }
-
-  if (_website !== "" && _password !== "") {
-    closeSimpleModal();
-
-    passData = {
-      url: url.value.trim(),
-      website: website.value.trim(),
-      username: username.value.trim(),
-      password: password.value.trim(),
-      notes: textBox.value.trim(),
-    };
-
-    items.push(passData);
-
-    localStorage.setItem("items", JSON.stringify(items));
-
-    loadPasswords();
-
-    url.value = "";
-    website.value = "";
-    username.value = "";
-    password.value = "";
-    textBox.value = "";
-  }
-});
-
-function openSimpleModal() {
-  simpleModal.style.display = "block";
-}
-
-function closeSimpleModal() {
-  simpleModal.style.display = "none";
-  url.value = "";
-  website.value = "";
-  username.value = "";
-  password.value = "";
-  textBox.value = "";
-}
-
-function openEditModal(e) {
+function openPasswordEditModal(e) {
   index = getElementIndex(e.target);
 
-  editModal = document.getElementById("edit-modal");
-  editModal.style.display = "block";
+  editPasswordModal = document.getElementById("edit-password-modal");
+  editPasswordModal.style.display = "block";
 
   input = e.target.parentElement.parentElement.querySelector("#item-text");
 
@@ -115,9 +45,9 @@ function openEditModal(e) {
   editTextBox.value = input.dataset.notes;
 
   closeBtn = document.getElementById("edit-close-btn");
-  closeBtn.addEventListener("click", closeEditModal);
+  closeBtn.addEventListener("click", closePasswordEditModal);
 
-  updateItem.addEventListener("click", (e) => {
+  passwordContentUpdateItem.addEventListener("click", (e) => {
     e.preventDefault();
 
     newData = {
@@ -144,30 +74,24 @@ function openEditModal(e) {
     }
 
     if (_website !== "" && _password !== "") {
-      closeEditModal();
+      closePasswordEditModal();
 
-      updateData(e.target, newData);
+      updatePasswordData(e.target, newData);
     }
   });
 }
 
-function closeEditModal() {
-  editModal.style.display = "none";
+function closePasswordEditModal() {
+  editPasswordModal.style.display = "none";
 }
 
 function clickOutside(e) {
-  if (e.target == (simpleModal || editModal)) {
-    url.value = "";
-    website.value = "";
-    username.value = "";
-    password.value = "";
-    textBox.value = "";
-    simpleModal.style.display = "none";
-    editModal.style.display = "none";
+  if (e.target == editPasswordModal) {
+    editPasswordModal.style.display = "none";
   }
 }
 
-function updateData(e, newData) {
+function updatePasswordData(e, newData) {
   var data = JSON.parse(localStorage.getItem("items"));
   data[index] = newData;
 
@@ -183,7 +107,7 @@ function getElementIndex(element) {
 }
 
 function loadPasswords() {
-  item_list.innerHTML = "";
+  passwordContentItemList.innerHTML = "";
 
   items = JSON.parse(localStorage.getItem("items")) || [];
 
@@ -193,8 +117,6 @@ function loadPasswords() {
 
     const item_content = document.createElement("div");
     item_content.classList.add("item-content");
-
-//#region item_text
 
     const item_text = document.createElement("input");
     item_text.type = "text";
@@ -211,8 +133,6 @@ function loadPasswords() {
     item_text.value = item.website;
 
     item_content.appendChild(item_text);
-
-//#endregion
 
     const item_url = document.createElement("span");
     item_url.id = "item-url";
@@ -242,7 +162,7 @@ function loadPasswords() {
     edit_action.classList.add("edit");
     edit_action.classList.add("fa-solid");
     edit_action.classList.add("fa-pen-to-square");
-    edit_action.addEventListener("click", openEditModal);
+    edit_action.addEventListener("click", openPasswordEditModal);
 
     const delete_action = document.createElement("button");
     delete_action.classList.add("delete");
@@ -252,7 +172,7 @@ function loadPasswords() {
     delete_action.addEventListener("click", () => {
       items = items.filter((i) => i != item);
       localStorage.setItem("items", JSON.stringify(items));
-      item_list.removeChild(item_el);
+      passwordContentItemList.removeChild(item_el);
     });
 
     item_actions.appendChild(copy_action);
@@ -262,7 +182,7 @@ function loadPasswords() {
     item_el.appendChild(item_content);
     item_el.appendChild(item_actions);
 
-    item_list.appendChild(item_el);
+    passwordContentItemList.appendChild(item_el);
   });
 }
 
@@ -295,3 +215,6 @@ function loadPage(url) {
 
   return;
 }
+
+//#endregion
+
